@@ -1,5 +1,6 @@
 package com.example.abhi.blogging;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -73,6 +74,9 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(MainActivity.this,"Signed in",Toast.LENGTH_LONG).show();
+                            startActivity(new Intent(MainActivity.this,PostListActivity.class));
+                        }else{
+
                         }
                     }
                 });
@@ -80,6 +84,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.action_signout){
+            mAuth.signOut();
+        }
         return super.onOptionsItemSelected(item);
     }
 
