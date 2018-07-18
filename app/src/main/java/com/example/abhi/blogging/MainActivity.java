@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this,"Signed in",Toast.LENGTH_LONG).show();
                             startActivity(new Intent(MainActivity.this,PostListActivity.class));
                         }else{
-
+                            Toast.makeText();
                         }
                     }
                 });
